@@ -6,7 +6,8 @@ set nocompatible
 set backspace=indent,eol,start
 
 set t_Co=256
-colo slate
+let g:zenburn_high_Contrast=1
+colo zenburn
 
 autocmd BufEnter * :syntax sync fromstart
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
@@ -35,6 +36,7 @@ set smarttab
 set tabstop=4
 set vb t_vb=
 set whichwrap+=<,>,h,l
+set expandtab
 
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>n :set nohlsearch<cr>

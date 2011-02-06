@@ -36,7 +36,6 @@ set smarttab
 set tabstop=4
 set vb t_vb=
 set whichwrap+=<,>,h,l
-set expandtab
 
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>n :set nohlsearch<cr>

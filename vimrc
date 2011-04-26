@@ -64,3 +64,6 @@ nnoremap <leader>W <C-w>s
 
 set laststatus=2
 set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+

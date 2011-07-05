@@ -67,3 +67,8 @@ set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+set tags=./tags;/
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+

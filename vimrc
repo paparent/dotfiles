@@ -68,6 +68,8 @@ set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 let g:ackprg="ack -H --nocolor --nogroup --column"
 nmap <leader>a <Esc>:Ack!
 
+let g:pep8_map='<leader>8'
+
 set tags=./tags;/
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete

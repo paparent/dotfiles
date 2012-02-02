@@ -40,6 +40,7 @@ set whichwrap+=<,>,h,l
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <leader>n :set nohlsearch<cr>
 nmap <silent> <leader>. :lcd %:p:h<CR>
+nmap <silent> <leader>, :NERDTreeToggle<CR>
 
 map <F12> ggVGg?
 
@@ -86,3 +87,4 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 EOF
 
+let b:jslint_disabled = 1

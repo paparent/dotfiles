@@ -1,4 +1,5 @@
 call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 " Disable until I find a fix for "doc/tags" in repos
 " call pathogen#helptags()
 

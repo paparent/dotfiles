@@ -65,7 +65,6 @@ nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>W <C-w>s
 
 set laststatus=2
-set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
 let g:ackprg="ack -H --nocolor --nogroup --column"
 nmap <leader>a <Esc>:Ack!
@@ -75,6 +74,10 @@ let g:pep8_map='<leader>8'
 set tags=./tags;/
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+nnoremap <space> za
+vnoremap <space> zf
 
 " Add the virtualenv's site-packages to vim path
 py << EOF

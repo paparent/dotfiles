@@ -23,6 +23,9 @@ set colorcolumn=80
 set signcolumn=yes
 set noshowmode
 "set clipboard=unnamedplus
+set wildchar=<Tab> wildmenu wildmode=list:full
+set wildcharm=<C-Z>
+nnoremap <leader><Tab> :b <C-Z>
 
 let mapleader = " "
 

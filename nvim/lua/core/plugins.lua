@@ -1,4 +1,11 @@
 return {
+    'theprimeagen/harpoon',
+    'mbbill/undotree',
+    'tpope/vim-fugitive',
+    'lewis6991/gitsigns.nvim',
+    'tpope/vim-sleuth',
+    'j-hui/fidget.nvim',
+
     { 'nvim-telescope/telescope.nvim', tag = '0.1.0', dependencies = { {'nvim-lua/plenary.nvim'} } },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
 
@@ -16,12 +23,6 @@ return {
 	    ts_update()
 	end,
     },
-
-    'theprimeagen/harpoon',
-    'mbbill/undotree',
-    'tpope/vim-fugitive',
-    'lewis6991/gitsigns.nvim',
-    'tpope/vim-sleuth',
 
     {
 	'numToStr/Comment.nvim',
@@ -52,8 +53,6 @@ return {
 	}
     },
 
-    'j-hui/fidget.nvim',
-
     {
 	'alexghergh/nvim-tmux-navigation',
 	config = function()
@@ -68,6 +67,14 @@ return {
 		    next = "<C-Space>",
 		}
 	    }
+	end
+    },
+
+    {
+	'folke/trouble.nvim',
+	dependencies = { 'nvim-tree/nvim-web-devicons' },
+	config = function()
+	    require'trouble'.setup{}
 	end
     }
 }

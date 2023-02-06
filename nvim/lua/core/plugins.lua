@@ -77,6 +77,10 @@ return {
 	config = function()
 	    require'trouble'.setup{}
 	end
+    },
+
+    {
+	'davidgranstrom/nvim-markdown-preview',
     }
 }
 

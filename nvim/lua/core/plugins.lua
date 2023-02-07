@@ -10,6 +10,8 @@ return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
     { 'nvim-telescope/telescope-file-browser.nvim' },
 
+    { 'nvim-lualine/lualine.nvim', config = true },
+
     {
 	'rebelot/kanagawa.nvim',
 	config = function()

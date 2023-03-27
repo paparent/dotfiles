@@ -13,6 +13,22 @@ return {
     { 'nvim-lualine/lualine.nvim', config = true },
 
     {
+	'nvim-neotest/neotest',
+	dependencies = {
+	    'nvim-lua/plenary.nvim',
+	    'antoinemadec/FixCursorHold.nvim',
+	    'marilari88/neotest-vitest',
+	},
+	config = function()
+	    require('neotest').setup({
+		adapters = {
+		    require('neotest-vitest')
+		}
+	    })
+	end
+    },
+
+    {
 	'rebelot/kanagawa.nvim',
 	config = function()
 	    vim.cmd('colorscheme kanagawa')

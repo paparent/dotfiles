@@ -27,5 +27,6 @@ set.signcolumn = "yes"
 set.isfname:append("@-@")
 
 set.updatetime = 50
-set.colorcolumn = "80"
+set.colorcolumn = "120"
+set.cursorline = true
 

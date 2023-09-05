@@ -4,7 +4,7 @@ return {
     'tpope/vim-fugitive',
     'lewis6991/gitsigns.nvim',
     'tpope/vim-sleuth',
-    'j-hui/fidget.nvim',
+    { 'j-hui/fidget.nvim', tag = 'legacy', event = "LspAttach", config = true },
 
     { 'nvim-telescope/telescope.nvim', tag = '0.1.0', dependencies = { {'nvim-lua/plenary.nvim'} } },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },

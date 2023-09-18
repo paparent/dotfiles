@@ -6,7 +6,7 @@ return {
     'tpope/vim-sleuth',
     { 'j-hui/fidget.nvim', tag = 'legacy', event = "LspAttach", config = true },
 
-    { 'nvim-telescope/telescope.nvim', tag = '0.1.0', dependencies = { {'nvim-lua/plenary.nvim'} } },
+    { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { {'nvim-lua/plenary.nvim'} } },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
     { 'nvim-telescope/telescope-file-browser.nvim' },
 
@@ -95,6 +95,20 @@ return {
 	config = function()
 	    require'trouble'.setup{}
 	end
+    },
+
+    {
+	"folke/which-key.nvim",
+	event = "VeryLazy",
+	init = function()
+	    vim.o.timeout = true
+	    vim.o.timeoutlen = 300
+	end,
+	opts = {
+	    -- your configuration comes here
+	    -- or leave it empty to use the default settings
+	    -- refer to the configuration section below
+	}
     },
 
     {

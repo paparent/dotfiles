@@ -1,14 +1,29 @@
 return {
-    'theprimeagen/harpoon',
-    'mbbill/undotree',
-    'tpope/vim-fugitive',
-    'lewis6991/gitsigns.nvim',
     'tpope/vim-sleuth',
-    { 'j-hui/fidget.nvim', tag = 'legacy', event = "LspAttach", config = true },
 
-    { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { {'nvim-lua/plenary.nvim'} } },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
-    { 'nvim-telescope/telescope-file-browser.nvim' },
+    {
+	'mbbill/undotree',
+	config = function()
+	    vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+	end
+    },
+
+    {
+	'tpope/vim-fugitive',
+	config = function()
+	    vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+	end,
+    },
+    {
+	'lewis6991/gitsigns.nvim',
+	config = function()
+	    require('gitsigns').setup({
+		current_line_blame = true,
+	    })
+	end,
+    },
+
+    { 'j-hui/fidget.nvim', tag = 'legacy', event = "LspAttach", config = true },
 
     { 'nvim-lualine/lualine.nvim', config = true },
 
@@ -33,14 +48,6 @@ return {
 	config = function()
 	    vim.cmd('colorscheme kanagawa')
 	end
-    },
-
-    {
-	'nvim-treesitter/nvim-treesitter',
-	build = function()
-	    local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-	    ts_update()
-	end,
     },
 
     {
@@ -93,7 +100,14 @@ return {
 	'folke/trouble.nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	config = function()
-	    require'trouble'.setup{}
+	    local t = require'trouble'
+	    t.setup{}
+	    vim.keymap.set("n", "<leader>xx", function() t.open() end)
+	    vim.keymap.set("n", "<leader>xw", function() t.open("workspace_diagnostics") end)
+	    vim.keymap.set("n", "<leader>xd", function() t.open("document_diagnostics") end)
+	    vim.keymap.set("n", "<leader>xl", function() t.open("quickfix") end)
+	    vim.keymap.set("n", "<leader>xq", function() t.open("loclist") end)
+	    vim.keymap.set("n", "gR", function() t.open("lsp_references") end)
 	end
     },
 

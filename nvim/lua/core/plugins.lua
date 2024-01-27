@@ -57,6 +57,7 @@ return {
 	end
     },
 
+    --[[
     {
 	'VonHeikemen/lsp-zero.nvim',
 	dependencies = {
@@ -78,6 +79,7 @@ return {
 	    {'rafamadriz/friendly-snippets'},
 	}
     },
+    ]]
 
     {
 	'alexghergh/nvim-tmux-navigation',

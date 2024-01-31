@@ -23,8 +23,6 @@ return {
 	end,
     },
 
-    { 'j-hui/fidget.nvim', tag = 'legacy', event = "LspAttach", config = true },
-
     { 'nvim-lualine/lualine.nvim', config = true },
 
     {
@@ -113,7 +111,7 @@ return {
 	end
     },
 
-    {
+    --[[ {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
 	init = function()
@@ -125,7 +123,7 @@ return {
 	    -- or leave it empty to use the default settings
 	    -- refer to the configuration section below
 	}
-    },
+    }, ]]
 
     {
 	'davidgranstrom/nvim-markdown-preview',

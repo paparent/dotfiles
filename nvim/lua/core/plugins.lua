@@ -29,15 +29,26 @@ return {
 	'nvim-neotest/neotest',
 	dependencies = {
 	    'nvim-lua/plenary.nvim',
+	    'nvim-neotest/nvim-nio',
+	    'nvim-treesitter/nvim-treesitter',
 	    'antoinemadec/FixCursorHold.nvim',
 	    'marilari88/neotest-vitest',
 	},
 	config = function()
-	    require('neotest').setup({
+	    local neotest = require('neotest')
+	    neotest.setup({
 		adapters = {
 		    require('neotest-vitest')
 		}
 	    })
+
+	    vim.keymap.set("n", "<leader>tc", function()
+                neotest.run.run()
+            end)
+
+            vim.keymap.set("n", "<leader>tf", function()
+                neotest.run.run(vim.fn.expand("%"))
+            end)
 	end
     },
 
@@ -93,21 +104,6 @@ return {
 		    next = "<C-Space>",
 		}
 	    }
-	end
-    },
-
-    {
-	'folke/trouble.nvim',
-	dependencies = { 'nvim-tree/nvim-web-devicons' },
-	config = function()
-	    local t = require'trouble'
-	    t.setup{}
-	    vim.keymap.set("n", "<leader>xx", function() t.open() end)
-	    vim.keymap.set("n", "<leader>xw", function() t.open("workspace_diagnostics") end)
-	    vim.keymap.set("n", "<leader>xd", function() t.open("document_diagnostics") end)
-	    vim.keymap.set("n", "<leader>xl", function() t.open("quickfix") end)
-	    vim.keymap.set("n", "<leader>xq", function() t.open("loclist") end)
-	    vim.keymap.set("n", "gR", function() t.open("lsp_references") end)
 	end
     },
 

@@ -9,7 +9,7 @@ return {
     config = function()
 	require('mason').setup()
 	require('mason-lspconfig').setup({
-	    ensure_installed = { 'lua_ls', 'tsserver' }
+	    ensure_installed = { 'lua_ls', 'tsserver', 'volar' }
 	})
 
 	require('neodev').setup({})
@@ -21,6 +21,7 @@ return {
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 	    end
 
+	    nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
 	    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 	end
 
@@ -29,6 +30,24 @@ return {
 		require('lspconfig')[server_name].setup({
 		    on_attach = on_attach,
 		    capabilities = capabilities,
+		})
+	    end,
+	    ["tsserver"] = function()
+		local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+
+		require('lspconfig').tsserver.setup({
+		    on_attach = on_attach,
+		    capabilities = capabilities,
+		    init_options = {
+			plugins = {
+			    {
+				name = '@vue/typescript-plugin',
+				location = vue_language_server_path,
+				languages = {'vue' }
+			    }
+			},
+		    },
+		    filetypes = { 'typescript', 'javascript', 'vue' }
 		})
 	    end,
 	})

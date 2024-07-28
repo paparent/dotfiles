@@ -15,10 +15,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 
@@ -34,4 +34,3 @@ vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "te", "<cmd>tabedit<CR>")
 vim.keymap.set("n", "<tab>", "<cmd>tabnext<CR>")
 vim.keymap.set("n", "<s-tab>", "<cmd>tabprev<CR>")
-

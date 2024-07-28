@@ -1,71 +1,71 @@
 return {
-    'tpope/vim-sleuth',
+    -- "tpope/vim-sleuth",
 
     {
-	'mbbill/undotree',
-	config = function()
-	    vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-	end
+        "mbbill/undotree",
+        config = function()
+            vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+        end,
     },
 
     {
-	'tpope/vim-fugitive',
-	config = function()
-	    vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-	end,
+        "tpope/vim-fugitive",
+        config = function()
+            vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+        end,
     },
     {
-	'lewis6991/gitsigns.nvim',
-	config = function()
-	    require('gitsigns').setup({
-		current_line_blame = true,
-	    })
-	end,
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup({
+                current_line_blame = true,
+            })
+        end,
     },
 
-    { 'nvim-lualine/lualine.nvim', config = true },
+    { "nvim-lualine/lualine.nvim", config = true },
 
     {
-	'nvim-neotest/neotest',
-	dependencies = {
-	    'nvim-neotest/nvim-nio',
-	    'nvim-lua/plenary.nvim',
-	    'nvim-neotest/nvim-nio',
-	    'nvim-treesitter/nvim-treesitter',
-	    'antoinemadec/FixCursorHold.nvim',
-	    'nvim-treesitter/nvim-treesitter',
-	    'marilari88/neotest-vitest',
-	},
-	config = function()
-	    local neotest = require('neotest')
-	    neotest.setup({
-		adapters = {
-		    require('neotest-vitest')
-		}
-	    })
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "nvim-neotest/nvim-nio",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "marilari88/neotest-vitest",
+        },
+        config = function()
+            local neotest = require("neotest")
+            neotest.setup({
+                adapters = {
+                    require("neotest-vitest"),
+                },
+            })
 
-	    vim.keymap.set("n", "<leader>tc", function()
-		neotest.run.run()
-	    end)
+            vim.keymap.set("n", "<leader>tc", function()
+                neotest.run.run()
+            end)
 
-	    vim.keymap.set("n", "<leader>tf", function()
-		neotest.run.run(vim.fn.expand("%"))
-	    end)
-	end
-    },
-
-    {
-	'rebelot/kanagawa.nvim',
-	config = function()
-	    vim.cmd('colorscheme kanagawa')
-	end
+            vim.keymap.set("n", "<leader>tf", function()
+                neotest.run.run(vim.fn.expand("%"))
+            end)
+        end,
     },
 
     {
-	'numToStr/Comment.nvim',
-	config = function()
-	    require('Comment').setup()
-	end
+        "rebelot/kanagawa.nvim",
+        config = function()
+            vim.cmd("colorscheme kanagawa")
+        end,
+    },
+
+    {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end,
     },
 
     --[[
@@ -93,20 +93,20 @@ return {
     ]]
 
     {
-	'alexghergh/nvim-tmux-navigation',
-	config = function()
-	    require'nvim-tmux-navigation'.setup {
-		disable_when_zoomed = true, -- defaults to false
-		keybindings = {
-		    left = "<C-h>",
-		    down = "<C-j>",
-		    up = "<C-k>",
-		    right = "<C-l>",
-		    last_active = "<C-\\>",
-		    next = "<C-Space>",
-		}
-	    }
-	end
+        "alexghergh/nvim-tmux-navigation",
+        config = function()
+            require("nvim-tmux-navigation").setup({
+                disable_when_zoomed = true, -- defaults to false
+                keybindings = {
+                    left = "<C-h>",
+                    down = "<C-j>",
+                    up = "<C-k>",
+                    right = "<C-l>",
+                    last_active = "<C-\\>",
+                    next = "<C-Space>",
+                },
+            })
+        end,
     },
 
     --[[ {
@@ -124,8 +124,6 @@ return {
     }, ]]
 
     {
-	'davidgranstrom/nvim-markdown-preview',
-    }
+        "davidgranstrom/nvim-markdown-preview",
+    },
 }
-
-

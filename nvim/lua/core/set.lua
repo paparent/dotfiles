@@ -29,3 +29,7 @@ set.isfname:append("@-@")
 set.updatetime = 50
 set.colorcolumn = "120"
 set.cursorline = true
+
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldlevel = 99

@@ -1,5 +1,5 @@
 return {
-    -- "tpope/vim-sleuth",
+    "tpope/vim-sleuth",
 
     {
         "mbbill/undotree",
@@ -30,8 +30,6 @@ return {
         dependencies = {
             "nvim-neotest/nvim-nio",
             "nvim-lua/plenary.nvim",
-            "nvim-neotest/nvim-nio",
-            "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
             "nvim-treesitter/nvim-treesitter",
             "marilari88/neotest-vitest",
@@ -57,6 +55,9 @@ return {
     {
         "rebelot/kanagawa.nvim",
         config = function()
+            require('kanagawa').setup({
+                transparent = true,
+            })
             vim.cmd("colorscheme kanagawa")
         end,
     },
@@ -126,4 +127,10 @@ return {
     {
         "davidgranstrom/nvim-markdown-preview",
     },
+
+    {
+        "nvim-focus/focus.nvim",
+        version = '*',
+        opts = {},
+    }
 }

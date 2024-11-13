@@ -9,7 +9,7 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls", "tsserver", "volar" },
+            ensure_installed = { "lua_ls", "ts_ls", "volar" },
         })
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -19,6 +19,9 @@ return {
                 vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
             end
 
+            nmap("gd", require('telescope.builtin').lsp_definitions, "[G]oto [D]efinition")
+            nmap("gr", require('telescope.builtin').lsp_references, "[G]oto [R]eferences")
+            nmap("gI", require('telescope.builtin').lsp_implementations, "[G]oto [I]mplementation")
             nmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
             nmap("K", vim.lsp.buf.hover, "Hover Documentation")
         end
@@ -30,12 +33,12 @@ return {
                     capabilities = capabilities,
                 })
             end,
-            ["tsserver"] = function()
+            ["ts_ls"] = function()
                 local vue_language_server_path = require("mason-registry")
                     .get_package("vue-language-server")
                     :get_install_path() .. "/node_modules/@vue/language-server"
 
-                require("lspconfig").tsserver.setup({
+                require("lspconfig").ts_ls.setup({
                     on_attach = on_attach,
                     capabilities = capabilities,
                     init_options = {

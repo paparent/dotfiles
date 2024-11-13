@@ -5,6 +5,7 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
     },
+    event = { "InsertEnter", "CmdlineEnter" },
     config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
@@ -49,6 +50,7 @@ return {
                 end, { "i", "s" }),
             }),
             sources = {
+                { name = "copilot" },
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
             },

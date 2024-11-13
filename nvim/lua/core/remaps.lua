@@ -32,5 +32,8 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "te", "<cmd>tabedit<CR>")
+vim.keymap.set("n", "tc", "<cmd>tabclose<CR>")
 vim.keymap.set("n", "<tab>", "<cmd>tabnext<CR>")
 vim.keymap.set("n", "<s-tab>", "<cmd>tabprev<CR>")
+
+vim.keymap.set("n", "<leader>v", vim.diagnostic.open_float)

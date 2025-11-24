@@ -25,5 +25,10 @@ return {
         vim.keymap.set("n", "<leader>fr", builtin.resume, {})
         vim.keymap.set("n", "<leader>fv", require("telescope").extensions.file_browser.file_browser, {})
         vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-    end,
+
+        vim.keymap.set("n", "<leader>fG", function()
+          local word = vim.fn.expand("<cword>")
+          require('telescope.builtin').live_grep({ default_text = word })
+        end, {})
+    end
 }

@@ -23,8 +23,6 @@ return {
         end,
     },
 
-    { "nvim-lualine/lualine.nvim", config = true },
-
     {
         "nvim-neotest/neotest",
         dependencies = {
@@ -124,8 +122,15 @@ return {
 	}
     }, ]]
 
+    -- {
+    --     "davidgranstrom/nvim-markdown-preview",
+    -- },
+
     {
-        "davidgranstrom/nvim-markdown-preview",
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
     },
 
     {

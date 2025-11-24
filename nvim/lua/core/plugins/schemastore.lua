@@ -4,7 +4,7 @@ return {
         "neovim/nvim-lspconfig",
     },
     config = function()
-        require("lspconfig").jsonls.setup({
+        vim.lsp.config("jsonls", {
             settings = {
                 json = {
                     schemas = require("schemastore").json.schemas(),
@@ -13,7 +13,7 @@ return {
             },
         })
 
-        require("lspconfig").yamlls.setup({
+        vim.lsp.config("yamlls", {
             settings = {
                 yaml = {
                     schemaStore = {

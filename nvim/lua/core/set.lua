@@ -20,6 +20,8 @@ set.undofile = true
 
 set.hlsearch = false
 set.incsearch = true
+set.smartcase = true
+set.ignorecase = true
 
 set.termguicolors = true
 set.scrolloff = 8

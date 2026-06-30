@@ -11,15 +11,22 @@ return {
         end
     },
     {
-        'zbirenbaum/copilot-cmp',
-        dependencies = {
-            'zbirenbaum/copilot.lua',
+        'saghen/blink.cmp',
+        version = '1.*',
+        dependencies = { 'fang2hou/blink-copilot' },
+        opts = {
+            sources = {
+                default = { "copilot" },
+                providers = {
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-copilot",
+                        score_offset = 100,
+                        async = true,
+                    },
+                },
+            },
         },
-        cmd = 'Copilot',
-        event = 'InsertEnter',
-        config = function()
-            require('copilot_cmp').setup({})
-        end,
     },
     {
         "CopilotC-Nvim/CopilotChat.nvim",

@@ -9,8 +9,6 @@ return {
     config = function()
         require("mason").setup()
 
-        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
             callback = function(event)
@@ -27,6 +25,8 @@ return {
             end,
         })
 
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
+
         require("mason-lspconfig").setup({
             -- ensure_installed = { "lua_ls", "ts_ls", "vue_ls" },
             handlers = {
@@ -35,27 +35,23 @@ return {
                         capabilities = capabilities,
                     })
                 end,
-            -- ["ts_ls"] = function()
-            --     local vue_language_server_path = require("mason-registry")
-            --         .get_package("vue-language-server")
-            --         :get_install_path() .. "/node_modules/@vue/language-server"
-            --
-            --     vim.lsp.config("ts_ls", {
-            --         on_attach = on_attach,
-            --         capabilities = capabilities,
-            --         init_options = {
-            --             plugins = {
-            --                 {
-            --                     name = "@vue/typescript-plugin",
-            --                     location = vue_language_server_path,
-            --                     languages = { "vue" },
-            --                 },
-            --             },
-            --         },
-            --         filetypes = { "typescript", "javascript", "vue" },
-            --     })
-            -- end,
             }
+        })
+
+        vim.lsp.config('vue_ls', {})
+        vim.lsp.config('ts_ls', {
+            init_options = {
+                plugins = {
+                    {
+                        name = '@vue/typescript-plugin',
+                        location = vim.fn.stdpath('data') ..
+                            "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+                        languages = { 'vue' },
+                        configNamespace = 'typescript',
+                    },
+                },
+            },
+            filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
         })
     end,
 }
